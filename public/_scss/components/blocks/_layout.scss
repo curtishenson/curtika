@@ -1,0 +1,129 @@
+//
+// Layout Defaults
+//
+
+// Set box-sizing globally to handle padding and border widths
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// Grid Defaults to get images and embeds to work properly
+img,
+object,
+embed { max-width: 100%; height: auto; }
+
+object,
+embed { height: 100%; }
+img { -ms-interpolation-mode: bicubic; }
+
+// Get rid of gap under images by making them display: inline-block; by default
+img { display: inline-block; }
+
+body {
+  padding: 0; margin: 0;
+}
+
+%clearfix { @include clearfix; }
+
+
+header {
+  background: $olive url('/assets/img/header_img.jpg') center center no-repeat;
+  background-size: cover;
+  color: $cream;
+  text-align: center;
+  min-height: 70vh;
+  position: relative;
+
+  .content {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 100px;
+    color: $cream;
+    line-height: 0.7;
+    word-spacing: -0.2em;
+    text-shadow: 0 0 50px #000;
+
+    @media #{$medium-up} {
+      font-size: 180px;
+    }
+
+    span {
+      display: block;
+      font-size: 0.6em;
+      word-spacing: 0;
+    }
+  }
+
+  .date,
+  .location {
+    @extend %special_font;
+    font-size: 24px;
+
+    @media #{$medium-up} {
+      font-size: 28px;
+    }
+  }
+}
+
+.accommodations {
+  text-align: center;
+  padding-top: 2em;
+  margin-bottom: 4em;
+
+  h3 {
+    font-size: 64px;
+    text-align: center;
+    color: $olive;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 2em auto 0;
+    padding: 0;
+    max-width: 800px;
+
+    @media #{$medium-up} {
+      @include display(flex);
+      @include justify-content(space-around);
+    }
+  }
+
+  li {
+    @include display(flex);
+    @include flex-direction(column);
+    @include justify-content(space-between);
+    border: 1px solid shade($cream, 20%);
+    background-color: $cream;
+    padding: 25px;
+    margin-bottom: 1em;
+
+    h5 {
+      font-size: em-calc(24px);
+    }
+
+    @media #{$medium-up} {
+      width: 48%;
+    }
+
+    > a {
+      display: inline-block;
+      padding: 0.5em 1em;
+      background-color: shade($cream, 10%);
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.page_footer {
+  text-align: center;
+  padding: 2em 0;
+}

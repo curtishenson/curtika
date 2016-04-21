@@ -1,0 +1,35 @@
+//
+// Layout Mixins
+//
+
+// Aligns elements via text-align: justify
+// See https://gist.github.com/curtishenson/6372554 for stripped down example
+@mixin align-justify($child: li, $width: 50%, $align: left) {
+
+  text-align: justify;
+  text-justify: distribute-all-lines;
+  font-size: 0px;
+
+  &:after     {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+
+  > #{$child} {
+    display: inline-block;
+    text-align: $align;
+    width: $width;
+    font-size: $base-font-size;
+    vertical-align: top;
+  }
+}
+
+
+// Vertical Align
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+%vertical-align { @include vertical-align; }
