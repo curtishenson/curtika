@@ -10,7 +10,7 @@ module.exports = function (grunt) {
     // default watch configuration
     watch: {
       sass: {
-        files: ['public/_scss/**/*.scss'],
+        files: ['_scss/**/*.scss'],
         tasks: ['sass']
       }
     },
@@ -22,21 +22,21 @@ module.exports = function (grunt) {
           sourcemap: 'auto'
         },
         files: {
-          'public/assets/css/main.css': 'public/_scss/main.scss'
+          'assets/css/main.css': '_scss/main.scss'
         }
       }
     },
 
     browserSync: {
       bsFiles: {
-        src : ['public/assets/css/*.css', 'public/assets/js/**/*.js', 'craft/templates/**/*.twig']
+        src : ['assets/css/*.css', 'assets/js/**/*.js', 'craft/templates/**/*.twig']
       },
       options: {
         watchTask: true,
         // proxy: "factory.dev", // if you use localhost it may not work, use 127.0.0.1 instead
         // for static sites only
         server: {
-          baseDir: "./public",
+          baseDir: "./",
         }
       }
     }
