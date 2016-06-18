@@ -27,6 +27,12 @@ body {
 
 %clearfix { @include clearfix; }
 
+.box {
+  border: 1px solid shade($cream, 20%);
+  background-color: $cream;
+  padding: 25px;
+  margin-bottom: 1em;
+}
 
 header {
   background: #222 url('/assets/img/header_img2.jpg') center center no-repeat;
@@ -60,33 +66,33 @@ header {
       word-spacing: 0;
     }
   }
-
-  .date,
-  .location {
-    @extend %special_font;
-    font-size: 24px;
-
-    @media #{$medium-up} {
-      font-size: 28px;
-    }
-  }
 }
 
-.accommodations,
-.registry {
+section {
   text-align: center;
   padding-top: 2em;
-  margin-bottom: 4em;
+  margin: 0 auto 1em;
+  width: 90%;
 
-  h3 {
+  @media #{$medium-up} {
+    max-width: 800px;
+  }
+
+  h2, h3 {
     font-size: 64px;
     text-align: center;
     color: $olive;
-    margin-bottom: 0;
+    margin-bottom: 0.2em;
     line-height: 1;
   }
 
   ul {
+    list-style-type: none;
+    margin: 1em 0;
+    line-height: 2;
+  }
+
+  .boxes {
     list-style-type: none;
     margin: 2em auto 0;
     padding: 0;
@@ -98,7 +104,7 @@ header {
     }
   }
 
-  li {
+  .boxes li {
     @include display(flex);
     @include flex-direction(column);
     @include justify-content(space-between);
@@ -124,19 +130,56 @@ header {
   }
 }
 
+.date,
+.location {
+  // @extend %special_font;
+  font-size: 24px;
+
+  @media #{$medium-up} {
+    font-size: 28px;
+  }
+}
+
 .registry {
-  li {
+  .boxes li {
     @include flex-direction(row);
     @include align-items(center);
+    padding: 0;
 
     @media #{$medium-up} {
       width: 30%;
     }
 
     > a {
+      display: block;
       background-color: transparent;
       margin-bottom: 0;
+      padding: 25px;
+      width: 100%;
     }
+
+    img {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.what_to_do {
+  ul {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  li::after {
+    content: '';
+    display: block;
+    width: 50%;
+    max-width: 200px;
+    border-bottom: 1px solid #dedede;
+    margin: 1em auto;
   }
 }
 

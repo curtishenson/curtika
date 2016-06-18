@@ -32,9 +32,9 @@ body { font-size: $base-font-size; }
 
 // Default body styles
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "proxima-nova", 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #444;
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
   line-height: 1;
 }
@@ -58,7 +58,7 @@ a:focus { outline: none; }
 $h1-font-size: em-calc(30) !default;
 $h2-font-size: em-calc(24) !default;
 $h3-font-size: em-calc(18) !default;
-$h4-font-size: em-calc(16) !default;
+$h4-font-size: em-calc(24) !default;
 $h5-font-size: em-calc(16) !default;
 $h6-font-size: 1em !default;
 
